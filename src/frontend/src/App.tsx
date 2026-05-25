@@ -50,7 +50,7 @@ const App: React.FC = () => {
   }, [isConnected, isDemoLoading, getSearchResults]);
 
   // Backend search function
-  const handleBackendSearch = useCallback(async (query: string): Promise<{ message: string; listings: SearchResult[] }> => {
+  const handleBackendSearch = useCallback(async (query: string): Promise<{ message: string; listings: SearchResult[]; agentPath?: string[] }> => {
     setIsSearching(true);
     try {
       const response = await fetch(`${API_BASE_URL}/query_message`, {
